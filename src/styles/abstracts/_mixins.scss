@@ -1,0 +1,12 @@
+@use "./functions" as *;
+
+@mixin customMedia($width) {
+  @media (width <= remF($width)) {
+    @content;
+  }
+}
+
+@mixin fluid-text($min: 16, $max: 48) {
+  font-size: fluid($min, $max);
+}
+
