@@ -1,0 +1,47 @@
+@use "@/styles/abstracts/functions" as *;
+@use "@/styles/abstracts/mixins" as *;
+@use "@/styles/abstracts/variables" as *;
+
+.header {
+  padding-block: remF(10);
+
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-inline: remF(60);
+    margin: 0 auto;
+    margin-bottom: remF(10);
+
+    .logo {
+
+      img {
+        height: remF(60);
+        width: auto;
+      }
+    }
+
+    .navBar {
+      display: flex;
+      gap: remF(110);
+      transition: gap 240ms ease;
+
+      a {
+        font-size: remF(15);
+        font-weight: 700;
+        color: white;
+      }
+
+      @include customMedia($laptopM) {
+        gap: remF(80);
+      }
+    }
+  }
+
+  .divider {
+    width: 90%;
+    border: 0.8px solid white;
+    margin: 0 auto;
+  }
+}
