@@ -1,10 +1,14 @@
-import Header from "@/components/Header/Header.tsx";
+import MainLayout from "@/layouts/MainLayout.tsx";
+import HeroSection from "@/components/HeroSection/HeroSection.tsx";
+
 
 function App() {
 
   return (
     <>
-        <Header/>
+        <MainLayout>
+            <HeroSection/>
+        </MainLayout>
     </>
   )
 }

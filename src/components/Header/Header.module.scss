@@ -36,6 +36,9 @@
       @include customMedia($laptopM) {
         gap: remF(80);
       }
+      @include customMedia($tabletL) {
+        gap: remF(50);
+      }
     }
   }
 
