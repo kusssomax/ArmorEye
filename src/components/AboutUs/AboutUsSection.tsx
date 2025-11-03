@@ -21,7 +21,7 @@ const showVariants: Variants = {
 
 const AboutUsSection = () => {
     return (
-        <section className={styles.section}>
+        <section id="aboutUs" className={styles.section}>
             <motion.div variants={showVariants} initial={"initial"} whileInView={"visible"} className={styles.iconsWrapper}>
                 <img src={firstIcon} alt="crosshair-icon"/>
                 <img src={secondIcon} alt="star-icon"/>
