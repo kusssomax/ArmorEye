@@ -5,7 +5,7 @@
 
 .section {
   position: relative;
-  padding: remF(70) remF(60) remF(70) remF(60);
+  padding: remF(80) remF(60) remF(100) remF(60);
   z-index: 0;
 
   .iconsWrapper {
@@ -20,7 +20,7 @@
     font-size: remF(40);
     font-weight: 300;
     text-align: center;
-    margin-bottom: remF(70);
+    margin-bottom: remF(100);
   }
 
   .descriptionWrapper {
