@@ -1,0 +1,111 @@
+@use "@/styles/abstracts/functions" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.section {
+  position: relative;
+  padding: remF(90) remF(60) remF(90) remF(60);
+  z-index: 0;
+
+  .title {
+    font-family: "Sansation", sans-serif;
+    color: white;
+    font-size: remF(40);
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: remF(90);
+  }
+
+  .carouselWrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 remF(80);
+    z-index: 1;
+
+    @include customMedia(768) {
+      padding: 0;
+    }
+  }
+
+  .carousel {
+    width: 100%;
+  }
+
+  .carouselItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 remF(20);
+  }
+
+  .videoContainer {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border: 2px solid #FFA9EB;
+    border-radius: remF(8);
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 remF(10) remF(30) rgba(0, 0, 0, 0.5);
+
+    @include customMedia(768) {
+      max-width: 100%;
+    }
+  }
+
+  .video {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 600px;
+    object-fit: contain;
+
+    @include customMedia(768) {
+      max-height: 400px;
+    }
+
+    @include customMedia(480) {
+      max-height: 300px;
+    }
+  }
+
+  .carouselPrev,
+  .carouselNext {
+    background: rgba(255, 169, 235, 0.2) !important;
+    border: 1px solid #FFA9EB !important;
+    color: white !important;
+    transition: all 0.3s ease;
+    left: remF(-60) !important;
+    right: auto !important;
+
+    &:hover:not(:disabled) {
+      background: rgba(255, 169, 235, 0.4) !important;
+      border-color: #FFA9EB !important;
+      transform: scale(1.1);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+    }
+
+    @include customMedia(768) {
+      display: none;
+    }
+  }
+
+  .carouselNext {
+    left: auto !important;
+    right: remF(-60) !important;
+  }
+
+  .textureImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+}

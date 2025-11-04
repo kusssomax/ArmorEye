@@ -3,7 +3,14 @@
 @use "@/styles/abstracts/variables" as *;
 
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   padding-block: remF(10);
+  backdrop-filter: blur(10px);
+  z-index: 999;
 
   .headerContainer {
     display: flex;
@@ -13,12 +20,49 @@
     padding-inline: remF(60);
     margin: 0 auto;
     margin-bottom: remF(10);
+    position: relative;
 
     .logo {
 
       img {
         height: remF(60);
         width: auto;
+      }
+    }
+
+    .burgerMenu {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: remF(30);
+      height: remF(30);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+
+      span {
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform-origin: center;
+      }
+
+      &.active {
+        span:nth-child(1) {
+          transform: rotate(45deg) translate(remF(8), remF(8));
+        }
+
+        span:nth-child(2) {
+          opacity: 0;
+        }
+
+        span:nth-child(3) {
+          transform: rotate(-45deg) translate(remF(8), remF(-8));
+        }
       }
     }
 
@@ -31,6 +75,12 @@
         font-size: remF(15);
         font-weight: 700;
         color: white;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+          opacity: 0.8;
+        }
       }
 
       @include customMedia($laptopM) {
@@ -39,11 +89,48 @@
       @include customMedia($tabletL) {
         gap: remF(50);
       }
+
+      @include customMedia($tabletM) {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        max-width: remF(300);
+        height: 100dvh;
+        background-color: rgb(16, 12, 15);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: remF(80) remF(30) remF(30);
+        gap: remF(30);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+
+        &.navBarOpen {
+          transform: translateX(0);
+        }
+
+        a {
+          font-size: remF(18);
+          width: 100%;
+          padding: remF(10) 0;
+        }
+      }
+    }
+
+    @include customMedia($tabletM) {
+      padding-inline: remF(20);
+
+      .burgerMenu {
+        display: flex;
+      }
     }
   }
 
   .divider {
-    width: 90%;
+    width: 94%;
     border: 0.8px solid white;
     margin: 0 auto;
   }
