@@ -1,13 +1,36 @@
+import { useState, useEffect } from "react";
 import styles from "./Header.module.scss";
 import logo from "@/assets/images/logo-black.png";
 
 const Header = () => {
-    const handleScrollToAboutUs = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        e.preventDefault();
-        const aboutUsSection = document.getElementById('aboutUs');
-        if (aboutUsSection) {
-            aboutUsSection.scrollIntoView({ behavior: 'smooth' });
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    useEffect(() => {
+        if (isMenuOpen) {
+            // Блокуємо скрол коли меню відкрите
+            document.body.style.overflow = 'hidden';
+        } else {
+            // Відновлюємо скрол коли меню закрите
+            document.body.style.overflow = '';
         }
+
+        // Cleanup при розмонтуванні компонента
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isMenuOpen]);
+
+    const handleScrollToSection = (sectionId: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+            setIsMenuOpen(false); // Close menu after clicking
+        }
+    };
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
     };
 
     return (
@@ -17,11 +40,21 @@ const Header = () => {
                     <img src={logo} alt="armorEye-logo"/>
                 </a>
                 
-                <nav className={styles.navBar}>
-                    <a href="#aboutUs" onClick={handleScrollToAboutUs}>About us</a>
-                    <a href="#project">Project</a>
-                    <a href="#results">Results</a>
-                    <a href="#contacts">Contacts</a>
+                <button 
+                    className={`${styles.burgerMenu} ${isMenuOpen ? styles.active : ''}`}
+                    onClick={toggleMenu}
+                    aria-label="Toggle menu"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <nav className={`${styles.navBar} ${isMenuOpen ? styles.navBarOpen : ''}`}>
+                    <a href="#aboutUs" onClick={handleScrollToSection('aboutUs')}>About us</a>
+                    <a href="#project" onClick={handleScrollToSection('project')}>Project</a>
+                    <a href="#results" onClick={handleScrollToSection('results')}>Results</a>
+                    <a href="#contacts" onClick={handleScrollToSection('contacts')}>Contacts</a>
                 </nav>
             </div>
             <div className={styles.divider}></div>

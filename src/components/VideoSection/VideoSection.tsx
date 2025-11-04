@@ -16,7 +16,7 @@ const VideoSection = () => {
     const videos = [video1, video2, trialVideo];
 
     return (
-        <section className={styles.section}>
+        <section id="results" className={styles.section}>
             <h1 className={styles.title}>Video</h1>
             <div className={styles.carouselWrapper}>
                 <Carousel

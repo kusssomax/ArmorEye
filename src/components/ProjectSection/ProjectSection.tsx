@@ -25,7 +25,7 @@ function Controls() {
 
 const ProjectSection = () => {
     return (
-        <section className={styles.section}>
+        <section id="project" className={styles.section}>
             <h1 className={styles.title}>Project</h1>
         
         <div className={styles.contentWrapper}>
