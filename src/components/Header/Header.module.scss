@@ -3,7 +3,14 @@
 @use "@/styles/abstracts/variables" as *;
 
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   padding-block: remF(10);
+  backdrop-filter: blur(10px);
+  z-index: 999;
 
   .headerContainer {
     display: flex;
@@ -89,8 +96,8 @@
         right: 0;
         width: 70%;
         max-width: remF(300);
-        height: 100vh;
-        background-color: rgba(14, 10, 13, 0.8);
+        height: 100dvh;
+        background-color: rgb(16, 12, 15);
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;

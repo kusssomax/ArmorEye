@@ -10,15 +10,30 @@ import {
 import video1 from "@/assets/videos/video1_new.mp4";
 import video2 from "@/assets/videos/video2_new.mp4";
 import trialVideo from "@/assets/videos/trial_video_new.mp4";
-import Autoplay from "embla-carousel-autoplay"
+import Autoplay from "embla-carousel-autoplay";
+import { motion } from "motion/react";
+import type { Variants } from "motion";
+
+const showVariants: Variants = {
+    "initial": {
+        opacity: 0,
+    },
+    "visible": {
+        opacity: 1,
+        transition: {
+            duration: 1.5,
+            ease: "easeInOut",
+        }
+    }
+}
 
 const VideoSection = () => {
     const videos = [video1, video2, trialVideo];
 
     return (
         <section id="results" className={styles.section}>
-            <h1 className={styles.title}>Video</h1>
-            <div className={styles.carouselWrapper}>
+            <motion.h1 variants={showVariants} initial={"initial"} whileInView={"visible"} className={styles.title}>Video</motion.h1>
+            <motion.div variants={showVariants} initial={"initial"} whileInView={"visible"} className={styles.carouselWrapper}>
                 <Carousel
                     plugins={[Autoplay({ delay: 2000 })]}
                     opts={{
@@ -47,7 +62,7 @@ const VideoSection = () => {
                     <CarouselPrevious className={styles.carouselPrev} />
                     <CarouselNext className={styles.carouselNext} />
                 </Carousel>
-            </div>
+            </motion.div>
             <img src={textureImage} alt="video-image" className={styles.textureImage} />
         </section>
     );

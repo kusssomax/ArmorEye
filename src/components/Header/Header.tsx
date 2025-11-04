@@ -7,14 +7,12 @@ const Header = () => {
 
     useEffect(() => {
         if (isMenuOpen) {
-            // Блокуємо скрол коли меню відкрите
             document.body.style.overflow = 'hidden';
         } else {
-            // Відновлюємо скрол коли меню закрите
             document.body.style.overflow = '';
         }
 
-        // Cleanup при розмонтуванні компонента
+    
         return () => {
             document.body.style.overflow = '';
         };
@@ -25,7 +23,7 @@ const Header = () => {
         const section = document.getElementById(sectionId);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth' });
-            setIsMenuOpen(false); // Close menu after clicking
+            setIsMenuOpen(false);
         }
     };
 
