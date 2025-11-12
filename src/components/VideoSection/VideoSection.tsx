@@ -1,4 +1,3 @@
-import textureImage from "@/assets/images/Texture2.png";
 import styles from "./VideoSection.module.scss";
 import {
   Carousel,
@@ -7,10 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import video1 from "@/assets/videos/video1_new.mp4";
-import video2 from "@/assets/videos/video2_new.mp4";
-import trialVideo from "@/assets/videos/trial_video_new.mp4";
-import Autoplay from "embla-carousel-autoplay";
+import {videos} from "./constants.ts";
 import { motion } from "motion/react";
 import type { Variants } from "motion";
 
@@ -28,14 +24,12 @@ const showVariants: Variants = {
 }
 
 const VideoSection = () => {
-    const videos = [video1, video2, trialVideo];
 
     return (
         <section id="results" className={styles.section}>
             <motion.h1 variants={showVariants} initial={"initial"} whileInView={"visible"} className={styles.title}>Video</motion.h1>
             <motion.div variants={showVariants} initial={"initial"} whileInView={"visible"} className={styles.carouselWrapper}>
                 <Carousel
-                    plugins={[Autoplay({ delay: 2000 })]}
                     opts={{
                         align: "start",
                         loop: true,
@@ -50,6 +44,8 @@ const VideoSection = () => {
                                         className={styles.video}
                                         muted
                                         playsInline
+                                        autoPlay={true}
+                                        loop={true}
                                         preload="metadata"
                                     >
                                         <source src={video} type="video/mp4" />
@@ -63,7 +59,6 @@ const VideoSection = () => {
                     <CarouselNext className={styles.carouselNext} />
                 </Carousel>
             </motion.div>
-            <img src={textureImage} alt="video-image" className={styles.textureImage} />
         </section>
     );
 };

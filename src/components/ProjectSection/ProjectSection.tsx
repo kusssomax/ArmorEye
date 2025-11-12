@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import styles from "./ProjectSection.module.scss";
-import textureImage from "@/assets/images/Texture.png";
 import droneModel from "@/assets/models/droneModel.glb";
 import { motion } from "motion/react";
 import type { Variants } from "motion";
@@ -55,7 +54,6 @@ const ProjectSection = () => {
                 </Canvas>
             </div>
         </motion.div>
-            <img className={styles.textureImage} src={textureImage} alt="texture-background"/>
         </section>
     );
 };
