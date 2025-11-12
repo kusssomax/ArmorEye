@@ -1,4 +1,5 @@
 import Header from "@/components/Header/Header.tsx";
+import Footer from "@/components/Footer/Footer.tsx";
 import type {MainLayoutProps} from './MainLayout.types.ts';
 
 const MainLayout = ( {children}: MainLayoutProps ) => {
@@ -8,7 +9,7 @@ const MainLayout = ( {children}: MainLayoutProps ) => {
             <main>
                 {children}
             </main>
-
+            <Footer/>
         </>
     );
 };
