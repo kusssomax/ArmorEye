@@ -9,6 +9,7 @@ import {
 import {videos} from "./constants.ts";
 import { motion } from "motion/react";
 import type { Variants } from "motion";
+import { useTranslation } from "react-i18next";
 
 const showVariants: Variants = {
     "initial": {
@@ -24,10 +25,11 @@ const showVariants: Variants = {
 }
 
 const VideoSection = () => {
+    const { t } = useTranslation();
 
     return (
         <section id="results" className={styles.section}>
-            <motion.h1 variants={showVariants} initial={"initial"} whileInView={"visible"} className={styles.title}>Video</motion.h1>
+            <motion.h1 variants={showVariants} initial={"initial"} whileInView={"visible"} className={styles.title}>{t("video.title")}</motion.h1>
             <motion.div variants={showVariants} initial={"initial"} whileInView={"visible"} className={styles.carouselWrapper}>
                 <Carousel
                     opts={{
@@ -49,7 +51,7 @@ const VideoSection = () => {
                                         preload="metadata"
                                     >
                                         <source src={video} type="video/mp4" />
-                                        Your browser does not support the video tag.
+                                        {t("video.browserNotSupported")}
                                     </video>
                                 </div>
                             </CarouselItem>

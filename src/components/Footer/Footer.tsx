@@ -3,8 +3,11 @@ import logo from "@/assets/images/logo-black.png";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+    const { t } = useTranslation();
+    
     const handleScrollToSection = (sectionId: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
         const section = document.getElementById(sectionId);
@@ -21,24 +24,23 @@ const Footer = () => {
                         <div className={styles.logoSection}>
                             <img src={logo} alt="armorEye-logo" className={styles.logo} />
                             <p className={styles.description}>
-                                Innovative solutions for modern challenges. 
-                                We deliver excellence in every project.
+                                {t("footer.description")}
                             </p>
                         </div>
                     </div>
 
                     <div className={styles.footerSection}>
-                        <h3 className={styles.sectionTitle}>Quick Links</h3>
+                        <h3 className={styles.sectionTitle}>{t("footer.quickLinks")}</h3>
                         <nav className={styles.footerNav}>
-                            <a href="#aboutUs" onClick={handleScrollToSection('aboutUs')}>About us</a>
-                            <a href="#project" onClick={handleScrollToSection('project')}>Project</a>
-                            <a href="#results" onClick={handleScrollToSection('results')}>Results</a>
-                            <a href="#contacts" onClick={handleScrollToSection('contacts')}>Contacts</a>
+                            <a href="#aboutUs" onClick={handleScrollToSection('aboutUs')}>{t("header.aboutUs")}</a>
+                            <a href="#project" onClick={handleScrollToSection('project')}>{t("header.project")}</a>
+                            <a href="#results" onClick={handleScrollToSection('results')}>{t("header.results")}</a>
+                            <a href="#contacts" onClick={handleScrollToSection('contacts')}>{t("header.contacts")}</a>
                         </nav>
                     </div>
 
                     <div className={styles.footerSection}>
-                        <h3 className={styles.sectionTitle}>Contact</h3>
+                        <h3 className={styles.sectionTitle}>{t("footer.contact")}</h3>
                         <div className={styles.contactInfo}>
                             <div className={styles.contactItem}>
                                 <Mail className={styles.contactIcon} />
@@ -56,7 +58,7 @@ const Footer = () => {
                     </div>
 
                     <div className={styles.footerSection}>
-                        <h3 className={styles.sectionTitle}>Follow Us</h3>
+                        <h3 className={styles.sectionTitle}>{t("footer.followUs")}</h3>
                         <div className={styles.socialLinks}>
                             <a 
                                 href="https://facebook.com" 
@@ -93,11 +95,11 @@ const Footer = () => {
 
                 <div className={styles.footerBottom}>
                     <p className={styles.copyright}>
-                        © {new Date().getFullYear()} ArmorEye. All rights reserved.
+                        {t("footer.copyright", { year: new Date().getFullYear() })}
                     </p>
                     <div className={styles.legalLinks}>
-                        <a href="#privacy">Privacy Policy</a>
-                        <a href="#terms">Terms of Service</a>
+                        <a href="#privacy">{t("footer.privacyPolicy")}</a>
+                        <a href="#terms">{t("footer.termsOfService")}</a>
                     </div>
                 </div>
             </div>

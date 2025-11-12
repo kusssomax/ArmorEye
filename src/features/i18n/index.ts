@@ -15,11 +15,18 @@ const resources = {
     }
 };
 
+// Get saved language from localStorage or default to "en"
+const getSavedLanguage = (): string => {
+    const saved = localStorage.getItem("i18nextLng");
+    return saved && (saved === "en" || saved === "ua") ? saved : "en";
+};
+
 i18n
     .use(initReactI18next) // passes i18n down to react-i18next
     .init({
         resources,
-        lng: "en", // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
+        lng: getSavedLanguage(), // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
+        fallbackLng: "en",
         // you can use the i18n.changeLanguage function to change the language manually: https://www.i18next.com/overview/api#changelanguage
         // if you're using a language detector, do not define the lng option
 
@@ -27,5 +34,10 @@ i18n
             escapeValue: false // react already safes from xss
         }
     });
+
+// Save language to localStorage when it changes
+i18n.on("languageChanged", (lng) => {
+    localStorage.setItem("i18nextLng", lng);
+});
 
 export default i18n;
