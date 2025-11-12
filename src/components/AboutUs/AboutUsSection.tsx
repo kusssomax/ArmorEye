@@ -1,5 +1,4 @@
 import styles from "./AboutUsSection.module.scss";
-import textureImg from "@/assets/images/Texture2.png";
 import firstIcon from "@/assets/images/Vector1.svg";
 import secondIcon from "@/assets/images/Vector2.svg";
 import robotImage from "@/assets/images/gabriele-malaspina-CjWsslYVnPI-unsplash (1).png"
@@ -35,7 +34,6 @@ const AboutUsSection = () => {
                     obstacles, and perform autonomous tasks. Our mission is to make drones smarter and safer by
                     integrating cutting-edge machine learning technologies.</p>
             </motion.div>
-            <img src={textureImg} className={styles.textureImage} alt="texture-image"/>
         </section>
     );
 };

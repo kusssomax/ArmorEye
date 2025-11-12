@@ -1,5 +1,4 @@
 import styles from './HeroSection.module.scss';
-import textureImage from "@/assets/images/Texture.png";
 import {Button} from "@/components/ui/button.tsx"
 import {titleVariants, buttonVariants} from "@/components/HeroSection/utils.ts";
 import { motion } from "motion/react";
@@ -20,7 +19,6 @@ const HeroSection = () => {
             <motion.div variants={buttonVariants} initial={"initial"} animate={"animate"} className={styles.buttonWrapper}>
                 <Button className={styles.button} onClick={handleScrollToAboutUs}>Learn more</Button>
             </motion.div>
-            <img className={styles.textureImage} src={textureImage} alt="texture-background"/>
         </section>
     );
 };
