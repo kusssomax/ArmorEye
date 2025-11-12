@@ -3,6 +3,7 @@ import {Button} from "@/components/ui/button.tsx"
 import {titleVariants, buttonVariants} from "@/components/HeroSection/utils.ts";
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
+import background from "@/assets/images/background.png";
 
 const HeroSection = () => {
     const { t, i18n } = useTranslation();
@@ -16,6 +17,7 @@ const HeroSection = () => {
 
     return (
         <section className={styles.heroSection}>
+            <img src={background} alt="background image" className={styles.bgImage}/>
             <motion.h1 variants={titleVariants} initial={"initial"} animate={"animate"} className={styles.title}>
                 {t("hero.title")}<br/><span>{t("hero.titleSpan")}</span>
             </motion.h1>
