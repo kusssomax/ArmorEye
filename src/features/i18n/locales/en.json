@@ -1,0 +1,56 @@
+{
+  "hero": {
+    "title": "Hi we are Messiah-Squad team.",
+    "titleSpan": "And here is our product",
+    "learnMore": "Learn more"
+  },
+  "aboutUs": {
+    "title": "About us",
+    "description": "We are team that develops solutions in the field of computer vision for ground drones. We design computer vision algorithms that enable drones to navigate in space, recognize objects, avoid obstacles, and perform autonomous tasks. Our mission is to make drones smarter and safer by integrating cutting-edge machine learning technologies."
+  },
+  "project": {
+    "title": "Project",
+    "description": "We are working on advanced solutions in the field of computer vision for ground drones. What do we develop? Autonomous navigation– algorithms that enable drones to navigate independently in space. Object recognition – systems that analyze the environment and identify key objects. Obstacle avoidance – technologies for safe movement in complex conditions."
+  },
+  "video": {
+    "title": "Video",
+    "browserNotSupported": "Your browser does not support the video tag."
+  },
+  "contact": {
+    "title": "Contact us",
+    "name": "Name",
+    "namePlaceholder": "John",
+    "nameError": "Please enter your first name (at least 2 characters).",
+    "surname": "Surname",
+    "surnamePlaceholder": "Doe",
+    "surnameError": "Please enter your surname (at least 2 characters).",
+    "contact": "Phone or Email",
+    "contactPlaceholder": "+1 555 123 4567 or john@doe.com",
+    "contactError": "Enter a valid email or phone number.",
+    "message": "Message",
+    "messagePlaceholder": "Tell us a bit about your request...",
+    "messageError": "Message should be at least 10 characters.",
+    "send": "Send"
+  },
+  "header": {
+    "aboutUs": "About us",
+    "project": "Project",
+    "results": "Results",
+    "contacts": "Contacts",
+    "toggleMenu": "Toggle menu"
+  },
+  "footer": {
+    "description": "Innovative solutions for modern challenges. We deliver excellence in every project.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "followUs": "Follow Us",
+    "copyright": "© {{year}} ArmorEye. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+  "language": {
+    "en": "English",
+    "ua": "Українська"
+  }
+}
+

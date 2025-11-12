@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import styles from "./Header.module.scss";
 import logo from "@/assets/images/logo-black.png";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher";
 
 const Header = () => {
+    const { t } = useTranslation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -38,21 +41,24 @@ const Header = () => {
                     <img src={logo} alt="armorEye-logo"/>
                 </a>
                 
-                <button 
-                    className={`${styles.burgerMenu} ${isMenuOpen ? styles.active : ''}`}
-                    onClick={toggleMenu}
-                    aria-label="Toggle menu"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <div className={styles.headerControls}>
+                    <LanguageSwitcher />
+                    <button 
+                        className={`${styles.burgerMenu} ${isMenuOpen ? styles.active : ''}`}
+                        onClick={toggleMenu}
+                        aria-label={t("header.toggleMenu")}
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
                 
                 <nav className={`${styles.navBar} ${isMenuOpen ? styles.navBarOpen : ''}`}>
-                    <a href="#aboutUs" onClick={handleScrollToSection('aboutUs')}>About us</a>
-                    <a href="#project" onClick={handleScrollToSection('project')}>Project</a>
-                    <a href="#results" onClick={handleScrollToSection('results')}>Results</a>
-                    <a href="#contacts" onClick={handleScrollToSection('contacts')}>Contacts</a>
+                    <a href="#aboutUs" onClick={handleScrollToSection('aboutUs')}>{t("header.aboutUs")}</a>
+                    <a href="#project" onClick={handleScrollToSection('project')}>{t("header.project")}</a>
+                    <a href="#results" onClick={handleScrollToSection('results')}>{t("header.results")}</a>
+                    <a href="#contacts" onClick={handleScrollToSection('contacts')}>{t("header.contacts")}</a>
                 </nav>
             </div>
             <div className={styles.divider}></div>
